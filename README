@@ -1,1 +1,5 @@
 This is a few scripts to plot aosoppa results
+
+All scripts for reading output files and plot are in util/
+
+Some examples of how to call these scripts are in examples/
