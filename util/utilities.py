@@ -13,7 +13,7 @@ print(matplotlib.__version__)
 
 
 def read_data(energy, weight, reference, total_methods, requested_methods, include_weights):
-    data = np.loadtxt('total_energy', usecols=range(3,3+len(total_methods),1))
+    data = np.loadtxt(energy, usecols=range(3,3+len(total_methods),1))
     cc3_exci = np.loadtxt(reference)
     
     total_dict = dict()
@@ -36,7 +36,7 @@ def read_data(energy, weight, reference, total_methods, requested_methods, inclu
 
     if (include_weights):
     
-        data2 = np.loadtxt('total_weight', usecols=range(3,3+len(total_methods),1))
+        data2 = np.loadtxt(weight, usecols=range(3,3+len(total_methods),1))
         
         total_weight = dict()
         for i,j in enumerate(total_methods):
@@ -666,7 +666,8 @@ def exclude_imag_rpa(exci_dict, error_dict, abs_error_dict, dc_true_false, weigh
     if dc_true_false == 'dc_false':
         rpa = 'RPA'
     if dc_true_false == 'dc_true':
-        rpa = 'ph(0)'
+        #rpa = 'ph(0)'
+        rpa = exci_labels[0]
 
     for i in range(71):
         if (exci_dict[rpa][i] < 0.1):

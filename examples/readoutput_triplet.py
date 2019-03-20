@@ -8,6 +8,6 @@ methods = ['RPA', 'RPA(D)', 'Higher RPA', 'HRPA(D)', 's-HRPA(D)', 'SOPPA', 'SOPP
 
 molecule = np.loadtxt('molecules.txt', usecols=[0], dtype=str)
 sym = np.loadtxt('molecules.txt', usecols=[1])
-states = np.loadtxt('molecules.txt', usecols=xrange(2,2+len(methods),1))
+states = np.loadtxt('molecules.txt', usecols=range(2,2+len(methods),1))
 
 create_table('triplet', methods, sym, states, molecule, len(molecule))
